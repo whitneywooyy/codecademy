@@ -1,0 +1,45 @@
+movies = {
+    'titanic' => 5,
+    'momento' => 4,
+}
+puts "Whould you like to add, update, display, or delete a movie?"
+choice = gets.chomp
+
+case choice 
+when "add"
+    puts "What movie would you like to add?"
+    title = gets.chomp.downcase
+    if movies[title.to_sym] = nil
+        puts "What do you rate this movie?"
+        rating = gets.chomp.downcase
+        movies[title.to_sym] = rating.to_i
+        puts "#{title} has been added with a rating of #{rating}."
+    else 
+        puts "Oops! #{title} already exists in the database."
+    end
+when "update"
+    puts "Which movie would you like to update?"
+    title = gets.chomp.downcase
+    if movies[title.to_sym] = nil
+        puts "Sorry, #{title} does not exist in the database yet. Please 'add' it first."
+    else 
+        puts "What is your new rating for #{title}?"
+        rating = gets.chomp.downcase
+        movies[title.to_sym] = rating.to_i
+        puts "#{title} has been updated with a rating of #{rating}."
+    end
+when "display"
+    movies.each do |title, rating|
+    puts "#{title}: #{rating}"
+    end
+when "delete"
+    puts "What movie would you like to delete from the database?"
+    title = gets.chomp.downcase
+    if movies[title.to_sym] = nil
+        puts "Good news! #{title} does not exist in the database yet." 
+    else movies.delete(title)
+        puts "#{title} has been deleted from the database."
+    end
+else
+    puts "Error!"
+end
