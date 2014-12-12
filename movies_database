@@ -1,3 +1,7 @@
+# RUBY - Codecademy exercise 10/10 "A Night at the Movies" 
+# Simple database manipulation using Ruby to CRUD - Create, Add, Update, or Delete data
+
+# Code Begin
 movies = {
     'titanic' => 5,
     'momento' => 4,
