@@ -8,15 +8,23 @@ movies = {
 }
 puts "Whould you like to add, update, display, or delete a movie?"
 choice = gets.chomp
-
-case choice 
+# 'movies' is a hash that contains a key (titanic) and a value (5)
+case choice
+# 'choice' is a case. Cases have multiple conditions that may be too complicated for if/else statemnts.
 when "add"
     puts "What movie would you like to add?"
     title = gets.chomp.downcase
+    # The previous 2 lines make up a 'prompt'
     if movies[title.to_sym] = nil
+    # The .nil? / = nil method will return true if the object it's called on is nil, and false otherwise.
+    # If the movie ISN'T already in the hash (i.e. if movies[title.to_sym] = nil), it will add the movie/rating pair. 
         puts "What do you rate this movie?"
         rating = gets.chomp.downcase
         movies[title.to_sym] = rating.to_i
+        # Ruby's .to_sym method can convert a string to a symbol, and .to_i will convert a string to an integer.
+        # This is how we get our movies and ratings from the user (which come in as strings) into the hash where 
+        # we want our movies to be SYMBOLS and our ratings to be INTEGERS.
+        # Can also use .intern instead of .to_sym, if preferred.
         puts "#{title} has been added with a rating of #{rating}."
     else 
         puts "Oops! #{title} already exists in the database."
@@ -25,6 +33,8 @@ when "update"
     puts "Which movie would you like to update?"
     title = gets.chomp.downcase
     if movies[title.to_sym] = nil
+    # If the movie ISN'T already in the hash (i.e. if movies[title.to_sym] = nil), it will return 'Error!'
+    # (as seen at the bottom of this code).
         puts "Sorry, #{title} does not exist in the database yet. Please 'add' it first."
     else 
         puts "What is your new rating for #{title}?"
