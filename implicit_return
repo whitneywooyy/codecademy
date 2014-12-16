@@ -1,0 +1,15 @@
+# We know that methods in Ruby can return values, and we usually ask a method
+# to return a value when we want to use it in another part of our program, like this: 
+
+def multiple_of_three(n)
+  return n % 3 == 0 ? "True" : "False"
+end
+
+# If we don't put a return statement in our method definition, our Ruby method will then look like this:
+
+def multiple_of_three(n)
+  n % 3 == 0 ? "True" : "False"
+end
+# Removed the word 'return'
+
+# Both statements output the same thing.
