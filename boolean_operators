@@ -1,0 +1,17 @@
+# truth tables!
+
+true && true # => true
+true && false # => false
+false && true # => false
+false && false # => false
+
+true || true # => true
+true || false # => true
+false || true # => true
+false || false # => false
+
+# The && operator only returns true when the expressions on both sides of the operator are true; 
+# || returns true when one or the other or both of the expressions involved are true. 
+# 'Short-circuit evaluation' means that Ruby doesn't look at both expressions unless it has to; if it sees
+false && true
+# it stops reading as soon as it sees && because it knows false && anything must be false.
