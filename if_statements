@@ -1,0 +1,17 @@
+# An even more concise version of if/else is the 'ternary conditional expression'. 
+# It's called "ternary" because it takes three arguments: a boolean, an expression 
+# to evaluate if the boolean is true, and an expression to evaluate if the boolean is false.
+
+puts true ? "True!" : "False!"
+
+# The above ternary expression is the same as:
+
+if true
+  puts "True!"
+else
+  puts "False!"
+end
+
+# For the following: 
+puts 5 < 3 ? "5 is less than 3" : "5 is not less than 3!"
+# The console puts "5 is not less than 3!" because 5 < 3 is a boolean (T/F) and 5 is not less than 3.
