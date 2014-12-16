@@ -1,3 +1,4 @@
+# TERNARY CONDITIONAL EXPRESSION ----------------------------------------------------
 # An even more concise version of if/else is the 'ternary conditional expression'. 
 # It's called "ternary" because it takes three arguments: a boolean, an expression 
 # to evaluate if the boolean is true, and an expression to evaluate if the boolean is false.
@@ -15,3 +16,30 @@ end
 # For the following: 
 puts 5 < 3 ? "5 is less than 3" : "5 is not less than 3!"
 # The console puts "5 is not less than 3!" because 5 < 3 is a boolean (T/F) and 5 is not less than 3.
+
+#-------------------------------------------------------------------------------------------
+
+# CASE STATEMENTS ---------------------------------------------------------------------
+# We can get bogged down in ifs and elsifs if we have a lot of conditions to check. 
+# Thankfully, Ruby provides us with a concise alternative: the case statement. 
+# The syntax looks like this:
+
+case language
+when "JS"
+  puts "Websites!"
+when "Python"
+  puts "Science!"
+when "Ruby"
+  puts "Web apps!"
+else
+  puts "I don't know!"
+end
+
+# But you can fold it up like so:
+
+case language
+  when "JS" then puts "Websites!"
+  when "Python" then puts "Science!"
+  when "Ruby" then puts "Web apps!"
+  else puts "I don't know!"
+end
