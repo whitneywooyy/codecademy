@@ -1,0 +1,36 @@
+# .times method ---------------------------------------------------------------------
+
+5.times { puts "Odelay!" }
+# Prints 5 "Odelay!"s on separate lines
+
+---------------------------------------------------------------------------------------
+# .each method ------------------------------------------------------------------------
+
+[1, 2, 3].each { |x| puts x * 10 }
+# Prints 10, 20, 30 on separate lines
+
+# Here is an example...
+# (SHORT ANSWER):
+
+my_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+my_array.each {|x| puts x if x % 2 == 0}
+
+# (LONG ANSWER):
+
+my_array.each do |x|
+  puts "#{x}" if x % 2 == 0
+end
+
+# Puts the even values of my_array. 
+
+---------------------------------------------------------------------------------------------
+# .upto, .downto method
+
+"L".upto("P") { |letter| puts letter, " " }
+
+# Puts all letters in the alphabet between L and P!
+# .downto would produce the opposite result.
+
+---------------------------------------------------------------------------------------------
+
+
