@@ -1,0 +1,55 @@
+# We've seen that we can use the = operator to assign a value to a variable. 
+# But what if we only want to assign a variable if it hasn't already been assigned? 
+# For this, we can use the conditional assignment operator: ||=. 
+# It's made up of the or (||) logical operator and the normal = assignment operator.
+
+favorite_book = nil
+puts favorite_book
+# Which is 'nil', or Ruby's way of saying 'nothing'
+
+favorite_book ||= "Cat's Cradle"
+puts favorite_book
+# Which has now be re-assigned to "Cat's Cradle"
+
+favorite_book ||= "Why's (Poignant) Guide to Ruby"
+puts favorite_book
+# Which has again been reassigned to "Why's (Poignant) Guide to Ruby"
+
+favorite_book = "Why's Guide to JS"
+puts favorite_book
+# Puts "Why's Guide to JS" to the console.
+
+# What ||= really is, is it's just a shorthand for a longer expression. It works like the +=, *= and -= operators:
+
+a  += b          same as         a = a + b
+a  -= b          same as         a = a - b
+a  *= b          same as         a = a * b
+a ||= b          same as         a = a || b
+
+# For example, if a has the value 5, then after a+=4 it has the new value 9.
+
+But the || isn't an arithmetic operator, it works a bit differently:
+
+a equals:                  (a||b) equals:
+–––––––––––––––––––––––––––––––––––––––––
+false                          b
+nil                            b
+(anything else)                a
+
+# So if the left-hand variable a is nil, or false (as in the "oops!" example I gave above), 
+# or not even defined, then after a ||= x it will have the value of x. 
+# Otherwise, it'll remain unchanged.
+
+This is really handy in many scenarios. For instance, 
+# Ruby Hashes and Arrays all have the [] method, 
+# which will return nil if no value can be found. 
+# You can use that to set that value only if it wasn't set before:
+
+ary = [1,2,3]
+ary[3] ||= 99    # index 3 is the *fourth* index
+ary[0] ||= 99    # first element won't be overwritten
+ary              #=> [1, 2, 3, 99]
+
+hash = {:the_matrix => :good, :matrix_reloaded => :ok}
+hash[:matrix_revolutions] ||= :terrible        # add new item
+hash[:the_matrix] ||= :bad                     # won't change existing value
