@@ -1,0 +1,67 @@
+# Original Code
+
+$VERBOSE = nil    # We'll explain this at the end of the lesson.
+require 'prime'   # This is a module. We'll cover these soon!
+
+def first_n_primes(n)
+
+  unless n.is_a? Integer
+    return "n must be an integer."
+  end
+
+  if n <= 0
+    return "n must be greater than 0."
+  end
+  
+  prime_array = [] if prime_array.nil?
+  
+  prime = Prime.new
+  for num in (1..n)
+    prime_array.push(prime.next)
+  end
+  return prime_array
+end
+
+first_n_primes(10)
+
+# Refactorrs to:
+
+$VERBOSE = nil    # We'll explain this at the end of the lesson.
+require 'prime'   # This is a module. We'll cover these soon!
+
+def first_n_primes(n)
+
+  return "n must be an integer." unless n.is_a? Integer
+  return "n must be greater than 0." if n <= 0
+  
+  prime_array ||= []
+  # There is no need for the if statement once you include ||=!
+  
+  prime = Prime.new
+  n.times {prime_array << (prime.next) }
+  # Replaced the call to .push with the << (concatenation) operator.
+  prime_array
+  # Refactored the for loop into a single line. Removed 'end' since the for loop was removed.
+  # Removed return since Ruby automatically returns the value of the last expression it evaluates.
+end
+
+first_n_primes(10)
+
+# EVEN MORE REFACTORED:
+# In the original code above, $VERBOSE = nil on line 1 allowed us to use the old-style Prime.new 
+# from Ruby 1.8 without the interpreter yelling at us. In Ruby 1.9, we use Prime.instance instead, 
+# and the array magic is already built-in so we don't have to create prime_array or loop through it ourselves.
+
+require 'prime'
+
+def first_n_primes(n)
+  # Check for correct input!
+  "n must be an integer" unless n.is_a? Integer
+  "n must be greater than 0" if n <= 0
+
+  # The Ruby 1.9 Prime class makes the array automatically!
+  prime = Prime.instance
+  prime.first n
+end
+
+first_n_primes(10)
