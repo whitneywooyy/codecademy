@@ -16,6 +16,17 @@ end
 # For the following: 
 puts 5 < 3 ? "5 is less than 3" : "5 is not less than 3!"
 # The console puts "5 is not less than 3!" because 5 < 3 is a boolean (T/F) and 5 is not less than 3.
+#---------------------------------
+
+if 1 < 2
+  puts "One is less than two!"
+else
+  puts "One is not less than two."
+end
+
+# Turns into:
+
+puts 1 < 2 ? "One is less than two!" : "One is not less than two."
 
 #-------------------------------------------------------------------------------------------
 
